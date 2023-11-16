@@ -1,4 +1,5 @@
-<h1>{{ question.question_text }}</h1>
+<body style="background-color:pink;">
+    <h1 style="color:blue;">{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
@@ -6,7 +7,9 @@
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    <label for="choice{{ forloop.counter }}"><strong>{{ choice.choice_text }}</strong></label><br>
 {% endfor %}
+<br>
 <input type="submit" value="Vote">
 </form>
+</body>
